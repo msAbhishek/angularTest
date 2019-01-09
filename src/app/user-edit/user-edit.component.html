@@ -1,0 +1,122 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-sm-3">
+          <a style="text-decoration: none;" routerLink="/userHome/{{id}}">Home</a>
+      </div>
+      <div class="col-sm-3" id="editNav" style="background:#333; ">
+          <a style="text-decoration: none;">EDIT</a>
+      </div>
+      <div class="col-sm-3">
+          <a style="text-decoration: none;" >EMPTY</a>
+      </div>
+      <div class="col-sm-3">
+          <a style="text-decoration: none;">EMPTY</a>
+      </div>
+  </div>
+  <div class="jumbotron">
+      <input type="button" class="btn1" value="Log out" routerLink="/login">
+      <div class="mycontainer">
+          <h1>Edit Details </h1>
+          <form class="form">
+              <table>
+                  <tr>
+                      <td>Name</td>
+                      <td>
+                          <input [style.color]="nameFlag ? 'red' : 'green'" #name type="text" placeholder="Name" autocomplete="off" value={{userData.name}} (keyup) = "validateName(name.value)">
+                      </td>
+                      <td>
+                          <input [hidden]="!nameButtonFlag" type="button" class="btn" value="Update" (click)="updateName(id,name.value)">
+                      </td>
+                      <td>
+                          <span [hidden]="!nameFlag" class="nameSpan" style="color: red;">invalid name</span>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>User Name</td>
+                      <td>
+                          <input #uname [style.color]="unameFlag ? 'red' : 'green'" type="text" placeholder="Username" autocomplete="off" value={{userData.uname}} (blur) = "validateUName(uname.value)" (keyup) = "checkUname(uname.value)">
+                      </td>
+                      <td>
+                          <input [hidden]="!unameButtonFlag" (click)="updateUName(id,uname.value)" type="button" class="btn" value="Update" >
+                      </td>
+                      <td>
+                          <span #unamespan [hidden]="!unameFlag" class="unameSpan" style="color: red;">uname alredy exist</span>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Address</td>
+                      <td>
+                          <input #address [style.color]="addressFlag ? 'red' : 'green'" type="text" placeholder="Address" autocomplete="off" value={{userData.address}} (keyup) = "validateAddress(address.value)">
+                      </td>
+                      <td>
+                          <input [hidden]="!addressButtonFlag" (click)="updateAddress(id,address.value)" type="button" class="btn" value="Update">
+                      </td>
+                      <td>
+                          <span [hidden]="!addressFlag" class="addressSpan" style="color: red;">invalid address</span>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Email</td>
+                      <td>
+                          <input #email [style.color]="emailFlag ? 'red' : 'green'" type="email" placeholder="Email" autocomplete="off" value={{userData.email}} (keyup) = "validateEmail(email.value)">
+                      </td>
+                      <td>
+                          <input [hidden]="!emailButtonFlag" (click)="updateEmail(id,email.value)" type="button" class="btn" value="Update" >
+                      </td>
+                      <td>
+                          <span [hidden]="!emailFlag" class="emailSpan" style="color: red;">invalid email</span>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Password</td>
+                      <td>
+                          <input #password [style.color]="passwordFlag ? 'red' : 'green'" type="password" placeholder="Password" autocomplete="off" value="****" (keyup) = "validatePassword(password.value)">
+                      </td>
+                      <td>
+
+                      </td>
+                      <td>
+                          <span [hidden]="!passwordFlag" class="passwordSpan" style="color: red;">password must be 8
+                              charactors</span>
+                      </td>
+                  </tr>
+                  <tr id="hide">
+                      <td>Confrim Password</td>
+                      <td>
+                          <input #cpassword [style.color]="cpasswordFlag ? 'red' : 'green'" type="password" placeholder="confirm Password" autocomplete="off" value="****" (keyup) = "confirmPassword(cpassword.value,password.value)">
+                      </td>
+                      <td>
+                          <input [hidden]="!cpasswordButtonFlag" (click)="updatePassword(id,cpassword.value)" type="button" class="btn" value="Update" >
+                      </td>
+                      <td>
+                          <span [hidden]="!cpasswordFlag" class="cpasswordSpan" style="color: red;">password does not
+                              match</span>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Phone</td>
+                      <td>
+                          <input #phone [style.color]="phoneFlag ? 'red' : 'green'" type="number" placeholder="Phone" autocomplete="off" value={{userData.phone}} (keyup) = "validatePhone(phone.value)">
+                      </td>
+                      <td>
+                          <input [hidden]="!phoneButtonFlag" (click)="updatePhone(id,phone.value)" type="button" class="btn" value="Update">
+                      </td>
+                      <td>
+                          <span [hidden]="!phoneFlag" class="phoneSpan" style="color: red;">invalid phone</span>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>
+                          <input type="button" (click)="updateAll()"class="btn" value="Update All" style="padding-top: 10px;width:125px !important">
+                      </td>
+                      <td>
+                          <span [hidden]="!allUpdateFlag" class="btnSpan" style="color: red;">edit all fields</span>
+                      </td>
+                  </tr>
+              </table>
+          </form>
+      </div>
+
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3"  routerLink="/adminHome/{{id}}">
+            <a class="point" style="text-decoration: none;">VIEW USERS</a>
+        </div>
+        <div class="col-sm-3" style="background:#333; ">
+            <a class="point" style="text-decoration: none;" >VIEW ADMINS</a>
+        </div>
+        <div class="col-sm-3">
+            <a style="text-decoration: none;">EMPTY</a>
+        </div>
+        <div class="col-sm-3">
+            <a style="text-decoration: none;">EMPTY</a>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <input type="button" class="btn1" id="logout_btn" routerLink="/login" value="Log out">
+        <div class="ui left icon input" >
+            <input id="cls" type="text" placeholder="Search username" #search_bar (keyup) = "searchAdmin(search_bar.value)" >
+            <i class="users icon"></i>
+        </div>
+        <table class="ui very basic collapsing celled table" id="tbl">
+            <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>Employee Id</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of usersDetails" (click) = "selectedUser(user)">
+                  <td>{{user.name}}</td>
+                  <td>{{user.id}}</td>
+                  <td>{{user.phone}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>

@@ -1,0 +1,98 @@
+<div class="container-fluid">
+  <div class="jumbotron">
+      <form class="link">
+          <input type="button" routerLink="/login" class="rebtn" id="redirect" value="already a user sign in here">
+      </form>
+      <h1>Registration form</h1>
+      <form class="form">
+          <table cellspacing="10">
+              <tr>
+                  <td class="lft">Name</td>
+                  <td>
+                      <input #name (keyup) = "validateName(name.value)" [style.color]="nameFlag ? 'red' : 'green'" class="input-field" type="text" id="name" placeholder="Name" autocomplete="off">
+                  </td>
+                  <td>
+                    <span [hidden]="!nameFlag" class="nameSpan" style="color: red;">invalid name</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td class="lft">User Name</td>
+                  <td>
+                      <input #uname (blur) = "validateUName(uname.value)" [style.color]="unameFlag ? 'red' : 'green'" (keyup) = "checkUname(uname.value)" class="input-field" type="text" id="uname" placeholder="Username" autocomplete="off">
+                  </td>
+                  <td>
+                    <span #unamespan [hidden]="!unameFlag" class="unameSpan" style="color: red;">uname alredy exist</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td class="lft">Address</td>
+                  <td>
+                      <input #address (keyup) = "validateAddress(address.value)" [style.color]="addressFlag ? 'red' : 'green'" class="input-field" type="text" id="address" placeholder="Address" autocomplete="off">
+                  </td>
+                  <td>
+                    <span [hidden]="!addressFlag" class="addressSpan" style="color: red;">invalid address</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td class="lft">Email</td>
+                  <td>
+                      <input #email (keyup) = "validateEmail(email.value)" [style.color]="emailFlag ? 'red' : 'green'" class="input-field" type="email" id="email" placeholder="Email" autocomplete="off">
+                  </td>
+                  <td>
+                    <span [hidden]="!emailFlag" class="emailSpan" style="color: red;">invalid email</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td class="lft">Password</td>
+                  <td>
+                      <input #password (keyup) = "validatePassword(password.value)" [style.color]="passwordFlag ? 'red' : 'green'" class="input-field" type="password" id="password" placeholder="Password"
+                          autocomplete="off">
+                  </td>
+                  <td>
+                    <span [hidden]="!passwordFlag" class="passwordSpan" style="color: red;">password must be 8
+                        charactors</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td class="lft">Confirm Password</td>
+                  <td>
+                      <input #Cpassword (keyup) = "confirmPassword(Cpassword.value,password.value)" [style.color]="cpasswordFlag ? 'red' : 'green'" class="input-field" type="password" id="cpassword" placeholder="Confirm Password"
+                          autocomplete="off">
+                  </td>
+                  <td>
+                    <span [hidden]="!cpasswordFlag" class="cpasswordSpan" style="color: red;">password does not
+                        match</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td class="lft">Phone</td>
+                  <td>
+                      <input #phone (keyup) = "validatePhone(phone.value)" [style.color]="phoneFlag ? 'red' : 'green'" class="input-field" type="number" id="phone" placeholder="Phone" autocomplete="off">
+                  </td>
+                  <td>
+                    <span [hidden]="!phoneFlag" class="phoneSpan" style="color: red;">invalid phone</span>
+                  </td>
+              </tr>
+              <td></td>
+              <td>
+                  <input #register (click) ="registerUser()" type="button" class="btn" id="reg-button" value="register">
+              </td>
+              <td>
+                  <span  [hidden]="!regFlag" class="btnSpan" style="color: red;">fill all fields</span>
+              </td>
+          </table>
+      </form>
+  </div>
+  <ul class="bg-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>

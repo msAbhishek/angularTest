@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+      <a class="point" style="text-decoration: none;" routerLink="/adminHome/{{id}}">VIEW USERS</a>
+    </div>
+    <div class="col-sm-3">
+      <a class="point" style="text-decoration: none;" routerLink="/adminView/{{id}}">VIEW ADMINS</a>
+    </div>
+    <div class="col-sm-3" style="background:#333; ">
+      <a id="search" style="text-decoration: none;">EDIT</a>
+    </div>
+    <div class="col-sm-3">
+      <a  style="text-decoration: none;">EMPTY</a>
+    </div>
+  </div>
+  <div class="jumbotron">
+    <input type="button" class="btn1" id="logout_btn" routerLink="/login" value="Log out">
+    <div class="card">
+      <div class="detail">
+        <img src={{imageURL}} alt="John" style="width:200px; height: 200px;">
+        <h1>{{usersDetails.name}}</h1>
+        <p class="title">{{usersDetails.email}}</p>
+        <p>User Name: {{usersDetails.uname}}</p>
+        <input *ngIf = "userFlag" type="button" value="make admin" class="btn" (click) = makeAdmin()>
+        <p><input type="button" value="delete" class="btn" (click) = deleteUser()></p>
+      </div>
+    </div>
+  </div>
+</div>

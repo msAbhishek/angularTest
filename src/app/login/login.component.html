@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="jumbotron vertical-center text-center">
+    <form class="myForm" style="max-width:400px;margin:auto">
+      <h2 style="color:white; text-shadow: 0 1px 5px rgba(71, 66, 66, 0.8);">LOGIN</h2>
+      <div class="input-container">
+        <i class="fa fa-user icon"> </i>
+        <input #myName class="input-field" type="text" placeholder="Username">
+      </div>
+      <div class="input-container">
+        <i class="fa fa-key icon"></i>
+        <input #myPassword (keyup)="enterKey($event)" class="input-field" type="password" placeholder="Password">
+      </div>
+      <input type="button" class="btn" #login id="login-button" (click)="loginCheck(myName.value,myPassword.value)" value="Login" style="display:inline-block; width: 145px !important">
+      <input type="button" class="btn" id="signup-button" routerLink="/signup" value="Signup" style="display:inline-block; width: 145px !important">
+    </form>
+    <span [hidden]="!errorFlag" style="color: red;">{{ errorMesssage | uppercase}}</span>
+  </div>
+  <ul class="bg-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</div>

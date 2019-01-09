@@ -1,0 +1,30 @@
+
+ <div class="container-fluid">
+  <div class="row">
+      <div class="col-sm-3" style="background:#333; ">
+          <a style="text-decoration: none;cursor: pointer;" routerLink="/userHome/{{id}}">Home</a>
+      </div>
+      <div class="col-sm-3">
+          <a style="text-decoration: none;cursor: pointer;" routerLink="/userEdit/{{id}}">EDIT</a>
+      </div>
+      <div class="col-sm-3">
+          <a  style="text-decoration: none;cursor: pointer;">EMPTY</a>
+      </div>
+      <div class="col-sm-3">
+          <a style="text-decoration: none;cursor: pointer;">EMPTY</a>
+      </div>
+  </div>
+  <div class="jumbotron">
+      <input type="button" class="btn1" value="Log out" routerLink="/login" >
+      <div class="card" style="width: 18rem;">
+          <img #userImage class="card-img-top" style="height: 200px;width: 200px;" src = {{imageURL}}>
+          <input type="button" class="butn" value="upload" (click) = "triggerFileUPload()" />
+          <input type="file" #imgupload style="display:none"  (change) = "uploadImage($event)">
+          <div *ngIf="userData" class="card-body">
+              <h2  class="card-title">{{userData.name}}</h2>
+              <h3  id="h31">{{userData.email}}</h3>
+          </div>
+      </div>
+  </div>
+
+</div>
